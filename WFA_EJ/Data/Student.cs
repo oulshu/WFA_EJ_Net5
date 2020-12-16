@@ -4,15 +4,6 @@ namespace WFA_EJ.Data
 {
     public class Student : Person
     {
-        #region Методы
-
-        public override string ToString()
-        {
-            return $@"{FirstName} {Surname?[0]} {Patronymic?[0]}";
-        }
-
-        #endregion
-
         #region Свойства
 
         public string Guid { get; set; }
@@ -22,9 +13,7 @@ namespace WFA_EJ.Data
 
         #region Конструкторы
 
-        public Student()
-        {
-        }
+        public Student() { }
 
         public Student(string FirstName, string Surname, string Patronymic, string GroupGuid)
         {
@@ -33,6 +22,20 @@ namespace WFA_EJ.Data
             this.Patronymic = Patronymic;
             this.FirstName = FirstName;
             Guid = ShortGuid.NewGuid().Value;
+        }
+
+        #endregion
+
+        #region Методы
+
+        public override string ToString()
+        {
+            var res = FirstName ?? "NoName";
+            if (string.IsNullOrEmpty(Surname)) return res;
+            res += " " + Surname[0] + ".";
+            if (string.IsNullOrEmpty(Patronymic)) return res;
+            res += " " + Patronymic[0] + ".";
+            return res;
         }
 
         #endregion

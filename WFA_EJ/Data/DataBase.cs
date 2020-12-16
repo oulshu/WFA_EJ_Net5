@@ -8,11 +8,21 @@ namespace WFA_EJ.Data
 {
     public class DataBase
     {
-        public DataBaseEntity DataBaseEntity => _DataBaseEntity ??= new DataBaseEntity();
+        #region Поля
 
         private DataBaseEntity _DataBaseEntity;
         private string _SaveNameFile = Program.cfg["SaveNameFile"];
         private string _SaveTypeFile = Program.cfg["SaveTypeFile"];
+
+        #endregion
+
+        #region Свойства
+
+        public DataBaseEntity DataBaseEntity => _DataBaseEntity ??= new DataBaseEntity();
+
+        #endregion
+
+        #region Методы
 
         public void SetXML()
         {
@@ -78,5 +88,7 @@ namespace WFA_EJ.Data
                 default: throw new ApplicationException("Ошибка в файле конфигурации такого формата нету XML или Json");
             }
         }
+
+        #endregion
     }
 }

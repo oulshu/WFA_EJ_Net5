@@ -38,10 +38,7 @@ namespace WFA_EJ.Forms
 
         #region Методы
 
-        private async void F_Main_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            await Program.DataBase.Save();
-        }
+        private async void F_Main_FormClosing(object sender, FormClosingEventArgs e) { await Program.DataBase.Save(); }
 
         private void группуToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -50,10 +47,7 @@ namespace WFA_EJ.Forms
             treeView1.Refresh();
         }
 
-        private void преподавателяToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            OpenDialogAndSave(new F_AddTeacher());
-        }
+        private void преподавателяToolStripMenuItem1_Click(object sender, EventArgs e) { OpenDialogAndSave(new F_AddTeacher()); }
 
         private bool OpenDialogAndSave(Form form)
         {
@@ -65,13 +59,10 @@ namespace WFA_EJ.Forms
         private void listBoxSelectedTeacher_SelectedValueChanged(object sender, EventArgs e)
         {
             var itemmm = Program.DataBase.DataBaseEntity.Subjects;
-            var item = itemmm.Where(x => ((Teacher) listBoxSelectedTeacher.SelectedItem).SubjectsGuid.Contains(x.Guid))
-                .ToArray();
+            var item = itemmm.Where(x => ((Teacher) listBoxSelectedTeacher.SelectedItem).SubjectsGuid.Contains(x.Guid)).ToArray();
             listBoxSelectedSubject.Items.Clear();
             listBoxSelectedSubject.Items.AddRange(item);
         }
-
-        
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
@@ -100,21 +91,20 @@ namespace WFA_EJ.Forms
                 return;
             }
 
-            var selectedGroup = Program.DataBase.DataBaseEntity.Groups.First(x => x.Name == SelectedGroup.node && x.DateCreate.Year.ToString() == SelectedGroup.Parent);
+            var selectedGroup =
+                Program.DataBase.DataBaseEntity.Groups.First(x => x.Name == SelectedGroup.node && x.DateCreate.Year.ToString() == SelectedGroup.Parent);
             if (selectedGroup.Students == null || selectedGroup.Students.Count == 0)
             {
                 MessageBox.Show($"В выбранной группе({SelectedGroup.Parent} - {SelectedGroup.node}) нет ни одного студента");
                 return;
             }
-            (Group group, Teacher teacher, Subject subject) Selected = (selectedGroup,
-                (Teacher) listBoxSelectedTeacher.SelectedItem, (Subject) listBoxSelectedSubject.SelectedItem);
+
+            (Group group, Teacher teacher, Subject subject) Selected = (selectedGroup, (Teacher) listBoxSelectedTeacher.SelectedItem,
+                (Subject) listBoxSelectedSubject.SelectedItem);
             OpenDialogAndSave(new F_Journal(dateTimePicker1.Value, Selected));
         }
 
-        private void преподавателяToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OpenDialogAndSave(new F_AddTeacher(true));
-        }
+        private void преподавателяToolStripMenuItem_Click(object sender, EventArgs e) { OpenDialogAndSave(new F_AddTeacher(true)); }
 
         private void EditGroupToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -139,10 +129,7 @@ namespace WFA_EJ.Forms
             Program.DataBase.SetJson();
         }
 
-        private async void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            await Program.DataBase.Save();
-        }
+        private async void сохранитьToolStripMenuItem_Click(object sender, EventArgs e) { await Program.DataBase.Save(); }
 
         private void отчетToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -152,9 +139,7 @@ namespace WFA_EJ.Forms
             OpenDialogAndSave(new F_JournalReport(form.GroupGuid));
         }
 
-        private void студентаToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-        }
+        private void студентаToolStripMenuItem1_Click(object sender, EventArgs e) { }
 
         #endregion
     }

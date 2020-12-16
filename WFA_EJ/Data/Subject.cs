@@ -4,15 +4,6 @@ namespace WFA_EJ.Data
 {
     public class Subject
     {
-        #region Методы
-
-        public override string ToString()
-        {
-            return Name;
-        }
-
-        #endregion
-
         #region Свойства
 
         public string Guid { get; set; }
@@ -23,9 +14,7 @@ namespace WFA_EJ.Data
 
         #region Конструкторы
 
-        public Subject()
-        {
-        }
+        public Subject() { }
 
         public Subject(string Name, string TeacherGuid)
         {
@@ -39,6 +28,12 @@ namespace WFA_EJ.Data
             Guid = ShortGuid.NewGuid().Value;
             this.Name = Name;
         }
+
+        #endregion
+
+        #region Методы
+
+        public override string ToString() { return Name; }
 
         #endregion
     }

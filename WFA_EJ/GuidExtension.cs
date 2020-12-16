@@ -6,10 +6,7 @@ namespace WFA_EJ
     {
         #region Методы
 
-        public static string GetNewGuid()
-        {
-            return ShortGuid.NewGuid().Value;
-        }
+        public static string GetNewGuid() { return ShortGuid.NewGuid().Value; }
 
         #endregion
     }

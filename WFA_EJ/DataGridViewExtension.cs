@@ -5,6 +5,8 @@ namespace WFA_EJ
 {
     public static class DataGridViewExtension
     {
+        #region Методы
+
         public static DataGridView MyStyleDataGridView(this DataGridView dataGrid)
         {
             dataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -13,5 +15,7 @@ namespace WFA_EJ
             dataGrid.BackgroundColor = SystemColors.Control;
             return dataGrid;
         }
+
+        #endregion
     }
 }

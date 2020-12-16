@@ -12,6 +12,12 @@ namespace WFA_EJ.Forms
 
         #endregion
 
+        #region Свойства
+
+        public string GroupGuid { get; set; }
+
+        #endregion
+
         #region Конструкторы
 
         public F_SelectedGroup()
@@ -19,12 +25,6 @@ namespace WFA_EJ.Forms
             InitializeComponent();
             treeView1.UpdateTreeView();
         }
-
-        #endregion
-
-        #region Свойства
-
-        public string GroupGuid { get; set; }
 
         #endregion
 
@@ -40,8 +40,7 @@ namespace WFA_EJ.Forms
 
             var g = Program.DataBase.DataBaseEntity.Groups;
             GroupGuid = Program.DataBase.DataBaseEntity.Groups
-                .First(x => x.DateCreate.Year.ToString() == SelectedGroup.Year && x.Name == SelectedGroup.NameGroup)
-                .Guid;
+               .First(x => x.DateCreate.Year.ToString() == SelectedGroup.Year && x.Name == SelectedGroup.NameGroup).Guid;
             DialogResult = DialogResult.OK;
             Close();
         }

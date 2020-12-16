@@ -3,9 +3,19 @@ using System.ComponentModel;
 
 namespace WFA_EJ.Data
 {
-    [Serializable]
-    public class DataBaseEntity
+    [Serializable] public class DataBaseEntity
     {
+        #region Свойства
+
+        public BindingList<EvaluationOfStudent> EvaluationOfStudents { get; set; }
+        public BindingList<Student> Students { get; set; }
+        public BindingList<Teacher> Teachers { get; set; }
+        public BindingList<Group> Groups { get; set; }
+        public EvaluationEnum EvaluationEnum { get; set; }
+        public BindingList<Subject> Subjects { get; set; }
+
+        #endregion
+
         #region Конструкторы
 
         public DataBaseEntity()
@@ -17,17 +27,6 @@ namespace WFA_EJ.Data
             EvaluationEnum = new EvaluationEnum();
             Subjects = new BindingList<Subject>();
         }
-
-        #endregion
-
-        #region Свойства
-
-        public BindingList<EvaluationOfStudent> EvaluationOfStudents { get; set; }
-        public BindingList<Student> Students { get; set; }
-        public BindingList<Teacher> Teachers { get; set; }
-        public BindingList<Group> Groups { get; set; }
-        public EvaluationEnum EvaluationEnum { get; set; }
-        public BindingList<Subject> Subjects { get; set; }
 
         #endregion
     }

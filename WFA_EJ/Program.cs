@@ -4,19 +4,25 @@ using System.Text;
 using System.Windows.Forms;
 using Microsoft.Extensions.Configuration;
 using WFA_EJ.Data;
-using WFA_EJ.Forms;
 
 namespace WFA_EJ
 {
     public static class Program
     {
+        #region Свойства
+
+        public static ApplicationContext Context { get; set; }
+        public static DataBase DataBase { get; set; }
+        public static IConfigurationRoot cfg { get; set; }
+
+        #endregion
+
         #region Методы
 
         /// <summary>
         ///     Главная точка входа для приложения.
         /// </summary>
-        [STAThread]
-        private static void Main()
+        [STAThread] private static void Main()
         {
             var setti = new FileInfo("WFA_EJ.Settings.xml");
             if (!setti.Exists)
@@ -42,14 +48,6 @@ namespace WFA_EJ
 #endif
             Application.Run(Context);
         }
-
-        #endregion
-
-        #region Свойства
-
-        public static ApplicationContext Context { get; set; }
-        public static DataBase DataBase { get; set; }
-        public static IConfigurationRoot cfg { get; set; }
 
         #endregion
     }

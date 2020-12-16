@@ -5,15 +5,6 @@ namespace WFA_EJ.Data
 {
     public class Teacher : Person
     {
-        #region Методы
-
-        public override string ToString()
-        {
-            return $@"{FirstName} {Surname[0]}. {Patronymic[0]}.";
-        }
-
-        #endregion
-
         #region Свойства
 
         public string Guid { get; set; }
@@ -23,9 +14,7 @@ namespace WFA_EJ.Data
 
         #region Конструкторы
 
-        public Teacher()
-        {
-        }
+        public Teacher() { }
 
         public Teacher(string FirstName, string Surname, string Patronymic, BindingList<string> SubjectsGuid)
         {
@@ -34,6 +23,20 @@ namespace WFA_EJ.Data
             this.SubjectsGuid = SubjectsGuid;
             this.FirstName = FirstName;
             Guid = ShortGuid.NewGuid().Value;
+        }
+
+        #endregion
+
+        #region Методы
+
+        public override string ToString()
+        {
+            var res = FirstName ?? "NoName";
+            if (string.IsNullOrEmpty(Surname)) return res;
+            res += " " + Surname[0];
+            if (string.IsNullOrEmpty(Patronymic)) return res;
+            res += " " + Patronymic[0];
+            return res;
         }
 
         #endregion

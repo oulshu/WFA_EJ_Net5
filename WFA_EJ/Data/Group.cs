@@ -17,9 +17,7 @@ namespace WFA_EJ.Data
 
         #region Конструкторы
 
-        public Group()
-        {
-        }
+        public Group() { }
 
         public Group(string Name, BindingList<string> Students, DateTime DateCreate)
         {

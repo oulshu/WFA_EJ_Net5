@@ -29,9 +29,7 @@ namespace WFA_EJ.Data
             Guid = ShortGuid.NewGuid().Value;
         }
 
-        public EvaluationOfStudent()
-        {
-        }
+        public EvaluationOfStudent() { }
 
         #endregion
     }

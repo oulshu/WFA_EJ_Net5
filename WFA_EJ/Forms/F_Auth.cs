@@ -12,15 +12,6 @@ namespace WFA_EJ
 
         #endregion
 
-        #region Конструкторы
-
-        public F_Auth()
-        {
-            InitializeComponent();
-        }
-
-        #endregion
-
         #region Свойства
 
         private string Pass
@@ -35,12 +26,15 @@ namespace WFA_EJ
 
         #endregion
 
+        #region Конструкторы
+
+        public F_Auth() { InitializeComponent(); }
+
+        #endregion
+
         #region Методы
 
-        private string getPass()
-        {
-            return Program.cfg["password"];
-        }
+        private string getPass() { return Program.cfg["password"]; }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {

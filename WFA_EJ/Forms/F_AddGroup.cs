@@ -8,6 +8,15 @@ namespace WFA_EJ.Forms
 {
     public partial class F_AddGroup : Form
     {
+        #region Поля
+
+        private readonly string _GroupGuid;
+        private readonly bool _IsEdit;
+        private Group group;
+        private BindingList<Student> students;
+
+        #endregion
+
         #region Конструкторы
 
         public F_AddGroup(bool IsEdit = false, string GroupGuid = null)
@@ -17,8 +26,7 @@ namespace WFA_EJ.Forms
             InitializeComponent();
             if (IsEdit)
             {
-                students = new BindingList<Student>(Program.DataBase.DataBaseEntity.Students
-                    .Where(x => x.GroupGuid == GroupGuid).ToList());
+                students = new BindingList<Student>(Program.DataBase.DataBaseEntity.Students.Where(x => x.GroupGuid == GroupGuid).ToList());
                 group = Program.DataBase.DataBaseEntity.Groups.First(x => x.Guid == GroupGuid);
                 textBoxNameGroup.Text = group.Name;
                 dateTimePickerDateCreate.Value = group.DateCreate;
@@ -27,8 +35,7 @@ namespace WFA_EJ.Forms
             else
             {
                 students = new BindingList<Student>();
-                group = new Group(textBoxNameGroup.Text, dateTimePickerDateCreate.Value)
-                    {Guid = GuidExtension.GetNewGuid()};
+                group = new Group(textBoxNameGroup.Text, dateTimePickerDateCreate.Value) {Guid = GuidExtension.GetNewGuid()};
             }
 
             buttonEditStudent.Visible = false;
@@ -37,15 +44,6 @@ namespace WFA_EJ.Forms
             textBoxPatronymic.Enabled = false;
             listBox1.DataSource = students;
         }
-
-        #endregion
-
-        #region Поля
-
-        private readonly string _GroupGuid;
-        private readonly bool _IsEdit;
-        private Group group;
-        private BindingList<Student> students;
 
         #endregion
 
@@ -59,17 +57,17 @@ namespace WFA_EJ.Forms
                 return;
             }
 
-            if (!_IsEdit && Program.DataBase.DataBaseEntity.Groups
-                .Where(x => x.DateCreate.Year == dateTimePickerDateCreate.Value.Year).Select(x => x.Name)
-                .Contains(textBoxNameGroup.Text))
+            if (!_IsEdit && Program.DataBase.DataBaseEntity.Groups.Where(x => x.DateCreate.Year == dateTimePickerDateCreate.Value.Year).Select(x => x.Name)
+               .Contains(textBoxNameGroup.Text))
             {
                 MessageBox.Show("Такое название группы уже есть");
                 return;
             }
 
-            students = new BindingList<Student>(students.Where(x =>
-                !string.IsNullOrWhiteSpace(x.FirstName) && !string.IsNullOrWhiteSpace(x.Surname) &&
-                !string.IsNullOrWhiteSpace(x.Patronymic)).ToList());
+            students = new BindingList<Student>(
+                students.Where(
+                        x => !string.IsNullOrWhiteSpace(x.FirstName) && !string.IsNullOrWhiteSpace(x.Surname) && !string.IsNullOrWhiteSpace(x.Patronymic))
+                   .ToList());
             if (_IsEdit)
             {
                 var groupDB = Program.DataBase.DataBaseEntity.Groups.First(x => x.Guid == _GroupGuid);
@@ -86,16 +84,15 @@ namespace WFA_EJ.Forms
                 }
 
                 foreach (var student in studentsOld)
-                foreach (var studentDB in Program.DataBase.DataBaseEntity.Students.Where(x => x.Guid == student.Guid))
-                {
-                    studentDB.FirstName = student.FirstName;
-                    studentDB.Surname = student.Surname;
-                    studentDB.Patronymic = student.Patronymic;
-                }
+                    foreach (var studentDB in Program.DataBase.DataBaseEntity.Students.Where(x => x.Guid == student.Guid))
+                    {
+                        studentDB.FirstName = student.FirstName;
+                        studentDB.Surname = student.Surname;
+                        studentDB.Patronymic = student.Patronymic;
+                    }
 
                 foreach (var student in strudentsDelGuid)
-                    Program.DataBase.DataBaseEntity.Students.Remove(
-                        Program.DataBase.DataBaseEntity.Students.First(x => x.Guid == student));
+                    Program.DataBase.DataBaseEntity.Students.Remove(Program.DataBase.DataBaseEntity.Students.First(x => x.Guid == student));
             }
             else
             {
@@ -111,7 +108,7 @@ namespace WFA_EJ.Forms
         private void buttonAddList_Click(object sender, EventArgs e)
         {
             if (listBox1.Items.Count != 0)
-                if (string.IsNullOrWhiteSpace(((Student) listBox1.Items[listBox1.Items.Count - 1]).ToString()))
+                if (string.IsNullOrWhiteSpace(((Student) listBox1.Items[^1]).ToString()))
                     return;
             students.Add(new Student {GroupGuid = group.Guid, Guid = GuidExtension.GetNewGuid()});
             listBox1.SelectedIndex = listBox1.Items.Count - 1;
@@ -133,15 +130,8 @@ namespace WFA_EJ.Forms
             listBox1.DataSource = students;
         }
 
-        private void textBoxNameGroup_Leave(object sender, EventArgs e)
-        {
-            group.Name = textBoxNameGroup.Text?.Trim();
-        }
-
-        private void dateTimePickerDateCreate_Leave(object sender, EventArgs e)
-        {
-            group.DateCreate = dateTimePickerDateCreate.Value;
-        }
+        private void textBoxNameGroup_Leave(object sender, EventArgs e) { group.Name = textBoxNameGroup.Text?.Trim(); }
+        private void dateTimePickerDateCreate_Leave(object sender, EventArgs e) { group.DateCreate = dateTimePickerDateCreate.Value; }
 
         private void listBox1_SelectedValueChanged(object sender, EventArgs e)
         {
@@ -170,8 +160,7 @@ namespace WFA_EJ.Forms
             foreach (var Group in groups) Program.DataBase.DataBaseEntity.Groups.Remove(Group);
             var studentsDel = Program.DataBase.DataBaseEntity.Students.Where(x => x.GroupGuid == _GroupGuid).ToList();
             foreach (var student in students) Program.DataBase.DataBaseEntity.Students.Remove(student);
-            var evaluation_of_students = Program.DataBase.DataBaseEntity.EvaluationOfStudents
-                .Where(x => x.GroupGuid == _GroupGuid).ToList();
+            var evaluation_of_students = Program.DataBase.DataBaseEntity.EvaluationOfStudents.Where(x => x.GroupGuid == _GroupGuid).ToList();
             foreach (var EvaluationOfStudent in evaluation_of_students)
                 Program.DataBase.DataBaseEntity.EvaluationOfStudents.Remove(EvaluationOfStudent);
             Close();
