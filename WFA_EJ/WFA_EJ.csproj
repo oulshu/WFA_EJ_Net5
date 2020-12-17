@@ -54,7 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon.ico" />
-    <Content Include="Settings.xml">
+    <Content Include="WFA_EJ.Settings.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

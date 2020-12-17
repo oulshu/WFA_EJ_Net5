@@ -61,9 +61,9 @@ namespace WFA_EJ.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listBoxSelectedTeacher.FormattingEnabled = true;
             this.listBoxSelectedTeacher.ItemHeight = 15;
-            this.listBoxSelectedTeacher.Location = new System.Drawing.Point(182, 42);
+            this.listBoxSelectedTeacher.Location = new System.Drawing.Point(182, 57);
             this.listBoxSelectedTeacher.Name = "listBoxSelectedTeacher";
-            this.listBoxSelectedTeacher.Size = new System.Drawing.Size(148, 439);
+            this.listBoxSelectedTeacher.Size = new System.Drawing.Size(148, 424);
             this.listBoxSelectedTeacher.TabIndex = 0;
             this.listBoxSelectedTeacher.SelectedValueChanged += new System.EventHandler(this.listBoxSelectedTeacher_SelectedValueChanged);
             // 
@@ -73,9 +73,9 @@ namespace WFA_EJ.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listBoxSelectedSubject.FormattingEnabled = true;
             this.listBoxSelectedSubject.ItemHeight = 15;
-            this.listBoxSelectedSubject.Location = new System.Drawing.Point(351, 42);
+            this.listBoxSelectedSubject.Location = new System.Drawing.Point(351, 57);
             this.listBoxSelectedSubject.Name = "listBoxSelectedSubject";
-            this.listBoxSelectedSubject.Size = new System.Drawing.Size(148, 439);
+            this.listBoxSelectedSubject.Size = new System.Drawing.Size(148, 424);
             this.listBoxSelectedSubject.TabIndex = 1;
             // 
             // treeView1
@@ -83,16 +83,17 @@ namespace WFA_EJ.Forms
             this.treeView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.treeView1.HideSelection = false;
-            this.treeView1.Location = new System.Drawing.Point(12, 41);
+            this.treeView1.Location = new System.Drawing.Point(12, 56);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(155, 440);
+            this.treeView1.Size = new System.Drawing.Size(155, 425);
             this.treeView1.TabIndex = 2;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 23);
+            this.label1.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(12, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(85, 15);
             this.label1.TabIndex = 3;
@@ -103,7 +104,7 @@ namespace WFA_EJ.Forms
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(179, 23);
+            this.label2.Location = new System.Drawing.Point(182, 39);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(127, 15);
             this.label2.TabIndex = 3;
@@ -113,7 +114,7 @@ namespace WFA_EJ.Forms
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(348, 23);
+            this.label3.Location = new System.Drawing.Point(351, 39);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(96, 15);
             this.label3.TabIndex = 3;
@@ -150,20 +151,20 @@ namespace WFA_EJ.Forms
             this.группуToolStripMenuItem1,
             this.преподавателяToolStripMenuItem1});
             this.добавитьToolStripMenuItem.Name = "добавитьToolStripMenuItem";
-            this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
+            this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
             this.добавитьToolStripMenuItem.Text = "Добавить";
             // 
             // группуToolStripMenuItem1
             // 
             this.группуToolStripMenuItem1.Name = "группуToolStripMenuItem1";
-            this.группуToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.группуToolStripMenuItem1.Size = new System.Drawing.Size(165, 22);
             this.группуToolStripMenuItem1.Text = "Группу";
             this.группуToolStripMenuItem1.Click += new System.EventHandler(this.группуToolStripMenuItem1_Click);
             // 
             // преподавателяToolStripMenuItem1
             // 
             this.преподавателяToolStripMenuItem1.Name = "преподавателяToolStripMenuItem1";
-            this.преподавателяToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.преподавателяToolStripMenuItem1.Size = new System.Drawing.Size(165, 22);
             this.преподавателяToolStripMenuItem1.Text = "Преподавателя";
             this.преподавателяToolStripMenuItem1.Click += new System.EventHandler(this.преподавателяToolStripMenuItem1_Click);
             // 
@@ -173,20 +174,20 @@ namespace WFA_EJ.Forms
             this.группуToolStripMenuItem,
             this.преподавателяToolStripMenuItem});
             this.редактироватьToolStripMenuItem.Name = "редактироватьToolStripMenuItem";
-            this.редактироватьToolStripMenuItem.Size = new System.Drawing.Size(111, 20);
+            this.редактироватьToolStripMenuItem.Size = new System.Drawing.Size(110, 20);
             this.редактироватьToolStripMenuItem.Text = "Редактировать";
             // 
             // группуToolStripMenuItem
             // 
             this.группуToolStripMenuItem.Name = "группуToolStripMenuItem";
-            this.группуToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.группуToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.группуToolStripMenuItem.Text = "Группу";
             this.группуToolStripMenuItem.Click += new System.EventHandler(this.EditGroupToolStripMenuItem_Click);
             // 
             // преподавателяToolStripMenuItem
             // 
             this.преподавателяToolStripMenuItem.Name = "преподавателяToolStripMenuItem";
-            this.преподавателяToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.преподавателяToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.преподавателяToolStripMenuItem.Text = "Преподавателя";
             this.преподавателяToolStripMenuItem.Click += new System.EventHandler(this.преподавателяToolStripMenuItem_Click);
             // 
@@ -196,7 +197,7 @@ namespace WFA_EJ.Forms
             this.xMLToolStripMenuItem,
             this.jSONToolStripMenuItem});
             this.видСохраненияToolStripMenuItem.Name = "видСохраненияToolStripMenuItem";
-            this.видСохраненияToolStripMenuItem.Size = new System.Drawing.Size(118, 20);
+            this.видСохраненияToolStripMenuItem.Size = new System.Drawing.Size(117, 20);
             this.видСохраненияToolStripMenuItem.Text = "Вид сохранения";
             // 
             // xMLToolStripMenuItem
@@ -204,28 +205,28 @@ namespace WFA_EJ.Forms
             this.xMLToolStripMenuItem.Checked = true;
             this.xMLToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.xMLToolStripMenuItem.Name = "xMLToolStripMenuItem";
-            this.xMLToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
+            this.xMLToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
             this.xMLToolStripMenuItem.Text = "XML";
             this.xMLToolStripMenuItem.Click += new System.EventHandler(this.xMLToolStripMenuItem_Click);
             // 
             // jSONToolStripMenuItem
             // 
             this.jSONToolStripMenuItem.Name = "jSONToolStripMenuItem";
-            this.jSONToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
+            this.jSONToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
             this.jSONToolStripMenuItem.Text = "JSON";
             this.jSONToolStripMenuItem.Click += new System.EventHandler(this.jSONToolStripMenuItem_Click);
             // 
             // сохранитьToolStripMenuItem
             // 
             this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
-            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
+            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
             this.сохранитьToolStripMenuItem.Text = "Сохранить";
             this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.сохранитьToolStripMenuItem_Click);
             // 
             // отчетToolStripMenuItem
             // 
             this.отчетToolStripMenuItem.Name = "отчетToolStripMenuItem";
-            this.отчетToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.отчетToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.отчетToolStripMenuItem.Text = "Отчет";
             this.отчетToolStripMenuItem.Click += new System.EventHandler(this.отчетToolStripMenuItem_Click);
             // 
@@ -236,6 +237,7 @@ namespace WFA_EJ.Forms
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(155, 17);
             this.label4.TabIndex = 7;
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dateTimePicker1
             // 
@@ -264,7 +266,7 @@ namespace WFA_EJ.Forms
             this.Controls.Add(this.listBoxSelectedSubject);
             this.Controls.Add(this.listBoxSelectedTeacher);
             this.Controls.Add(this.menuStrip1);
-            this.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "F_Main";

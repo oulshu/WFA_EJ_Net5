@@ -101,7 +101,7 @@ namespace WFA_EJ.Forms
 
             (Group group, Teacher teacher, Subject subject) Selected = (selectedGroup, (Teacher) listBoxSelectedTeacher.SelectedItem,
                 (Subject) listBoxSelectedSubject.SelectedItem);
-            OpenDialogAndSave(new F_Journal(dateTimePicker1.Value, Selected));
+            OpenDialogAndSave(new F_Journal(dateTimePicker1.Value, Selected){Visible = false});
         }
 
         private void преподавателяToolStripMenuItem_Click(object sender, EventArgs e) { OpenDialogAndSave(new F_AddTeacher(true)); }
@@ -138,9 +138,6 @@ namespace WFA_EJ.Forms
             if (DialogResult.OK != result) return;
             OpenDialogAndSave(new F_JournalReport(form.GroupGuid));
         }
-
-        private void студентаToolStripMenuItem1_Click(object sender, EventArgs e) { }
-
         #endregion
     }
 }

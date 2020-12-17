@@ -4,6 +4,7 @@ using System.Text;
 using System.Windows.Forms;
 using Microsoft.Extensions.Configuration;
 using WFA_EJ.Data;
+using WFA_EJ.Forms;
 
 namespace WFA_EJ
 {

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 using WFA_EJ.Data;
 
@@ -23,7 +24,7 @@ namespace WFA_EJ.Forms
             }
 
             dataGridView1.MyStyleDataGridView();
-            Subjects.ToList().ForEach(subject => dataGridView1.Columns.Add(subject.Guid, subject.Name));
+            Subjects.ToList().ForEach(subject => dataGridView1.Columns.Add(subject.Guid , subject.Name));
             foreach (var student in students)
             {
                 var n = dataGridView1.Rows.Add();
@@ -46,9 +47,11 @@ namespace WFA_EJ.Forms
                     }
                     else
                     {
-                        evaluation += evaluations.Sum(x => (int) x.Evaluation) / evaluationsCount + " (п/о: ";
-                        foreach (var evaluation_of_student in evaluations)
-                            evaluation += (int) evaluation_of_student.Evaluation + ",";
+                        double sum = 0;
+                        foreach (var d in evaluations.Select(x => (int)x.Evaluation)) sum += d;
+                        var ev = (int)Math.Round(sum / evaluationsCount);
+                        evaluation += $"{ev} {sum / evaluationsCount:F} (п/о: ";
+                        evaluation = evaluations.Aggregate(evaluation, (current, evaluation_of_student) => current + ((int) evaluation_of_student.Evaluation + ","));
                         evaluation = evaluation.Substring(0, evaluation.Length - 1);
                         evaluation += ")";
                     }

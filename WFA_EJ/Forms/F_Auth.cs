@@ -6,13 +6,7 @@ namespace WFA_EJ
 {
     public partial class F_Auth : Form
     {
-        #region Поля
-
         private string pass;
-
-        #endregion
-
-        #region Свойства
 
         private string Pass
         {
@@ -24,16 +18,7 @@ namespace WFA_EJ
             }
         }
 
-        #endregion
-
-        #region Конструкторы
-
         public F_Auth() { InitializeComponent(); }
-
-        #endregion
-
-        #region Методы
-
         private string getPass() { return Program.cfg["password"]; }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
@@ -50,11 +35,7 @@ namespace WFA_EJ
                 Program.Context.MainForm.Show();
             }
             else
-            {
                 MessageBox.Show("Введен неверный пароль");
-            }
         }
-
-        #endregion
     }
 }

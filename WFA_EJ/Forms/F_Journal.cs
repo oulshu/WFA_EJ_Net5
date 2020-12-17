@@ -35,6 +35,7 @@ namespace WFA_EJ.Forms
             _DaysInMonth = DateTime.DaysInMonth(Date.Year, Date.Month);
             CountStudents = selected.group.Students.Count;
             InitializeComponent();
+            dataGridView1.Visible = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             for (var _day = 1; _day <= _DaysInMonth; _day++)
                 dataGridView1.Columns.Add(
@@ -70,6 +71,9 @@ namespace WFA_EJ.Forms
             }
 
             tableIn = GetValuesDataGridView(dataGridView1);
+            dataGridView1.TopLeftHeaderCell.Value = Date.ToString("Y"); //.Split(' ')[0];
+            dataGridView1.Visible = true;
+            Visible = true;
         }
 
         #endregion
@@ -80,7 +84,7 @@ namespace WFA_EJ.Forms
         {
             var validClick = e.RowIndex != -1 && e.ColumnIndex != -1;
             var datagridview = sender as DataGridView;
-            if (datagridview.Columns[e.ColumnIndex] is DataGridViewComboBoxColumn && validClick)
+            if (validClick && datagridview.Columns[e.ColumnIndex] is DataGridViewComboBoxColumn)
             {
                 datagridview.BeginEdit(true);
                 ((ComboBox) datagridview.EditingControl).DroppedDown = true;
