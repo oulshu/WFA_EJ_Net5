@@ -50,7 +50,7 @@ namespace WFA_EJ.Forms
                         double sum = 0;
                         foreach (var d in evaluations.Select(x => (int)x.Evaluation)) sum += d;
                         var ev = (int)Math.Round(sum / evaluationsCount);
-                        evaluation += $"{ev} {sum / evaluationsCount:F} (п/о: ";
+                        evaluation += $"{sum / evaluationsCount:F1} (п/о: ";
                         evaluation = evaluations.Aggregate(evaluation, (current, evaluation_of_student) => current + ((int) evaluation_of_student.Evaluation + ","));
                         evaluation = evaluation.Substring(0, evaluation.Length - 1);
                         evaluation += ")";

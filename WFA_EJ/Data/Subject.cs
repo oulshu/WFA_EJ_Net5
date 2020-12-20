@@ -33,7 +33,7 @@ namespace WFA_EJ.Data
 
         #region Методы
 
-        public override string ToString() { return Name; }
+        public override string ToString() { return Name??"None"; }
 
         #endregion
     }

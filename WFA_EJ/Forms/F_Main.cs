@@ -47,7 +47,10 @@ namespace WFA_EJ.Forms
             treeView1.Refresh();
         }
 
-        private void преподавателяToolStripMenuItem1_Click(object sender, EventArgs e) { OpenDialogAndSave(new F_AddTeacher()); }
+        private void преподавателяToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            OpenDialogAndSave(new F_AddTeacher());
+        }
 
         private bool OpenDialogAndSave(Form form)
         {
@@ -104,7 +107,15 @@ namespace WFA_EJ.Forms
             OpenDialogAndSave(new F_Journal(dateTimePicker1.Value, Selected){Visible = false});
         }
 
-        private void преподавателяToolStripMenuItem_Click(object sender, EventArgs e) { OpenDialogAndSave(new F_AddTeacher(true)); }
+        private void преподавателяToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var selectedTeacher = new F_SelectedTeacher();
+            var res = selectedTeacher.ShowDialog();
+            if (res != DialogResult.OK) return;
+            var GuidTeacher = selectedTeacher.GuidTeacher;
+            var f_add_teacher = new F_AddTeacher(true, GuidTeacher);
+            f_add_teacher.ShowDialog();
+        }
 
         private void EditGroupToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -139,5 +150,6 @@ namespace WFA_EJ.Forms
             OpenDialogAndSave(new F_JournalReport(form.GroupGuid));
         }
         #endregion
-    }
+
+        }
 }
