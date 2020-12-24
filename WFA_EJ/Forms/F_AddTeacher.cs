@@ -20,7 +20,8 @@ namespace WFA_EJ.Forms
             _IsEdit = IsEdit;
             _GuidTeacher = GuidTeacher;
             InitializeComponent();
-
+            textBox1.Enabled = false;
+            buttonSaveNameSubject.Enabled = false;
            //_subjects = new BindingList<Subject>();
 
             if (IsEdit)
@@ -57,10 +58,11 @@ namespace WFA_EJ.Forms
                 return;
             }
 
-            listBox1.DataSource = null;
-            listBox1.DataSource = _subjects;
-            
             ((Subject) listBox1.SelectedItem).Name = nameSubject;
+            
+            listBox1.DataSource = null;
+            listBox1.Refresh();
+            listBox1.DataSource = _subjects;
         }
 
         private void buttonDelTeacher_Click(object sender, EventArgs e)
@@ -130,6 +132,9 @@ namespace WFA_EJ.Forms
         {
             if (listBox1.SelectedIndex != -1)
                 _subjects.Remove((Subject) listBox1.SelectedItem);
+            listBox1.ClearSelected();
+            if (listBox1.Items.Count != 0)
+                listBox1.SelectedIndex = listBox1.Items.Count - 1;
         }
 
         private void buttonAddSubject_Click(object sender, EventArgs e)
@@ -140,7 +145,24 @@ namespace WFA_EJ.Forms
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            textBox1.Text = ((Subject) listBox1.SelectedItem).Name;
+            
+
+        }
+
+        private void listBox1_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (((ListBox) sender).SelectedIndex != -1)
+            {
+                textBox1.Text = ((Subject) listBox1.SelectedItem).Name;
+                textBox1.Enabled = true;
+                buttonSaveNameSubject.Enabled = true;
+            }
+            else
+            {
+                textBox1.Enabled = false;
+                buttonSaveNameSubject.Enabled = false;
+                textBox1.Clear();
+            }
         }
     }
 }

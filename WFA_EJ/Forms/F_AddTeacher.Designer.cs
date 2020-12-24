@@ -141,6 +141,7 @@ namespace WFA_EJ.Forms
             this.listBox1.Size = new System.Drawing.Size(229, 520);
             this.listBox1.TabIndex = 0;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.listBox1.SelectedValueChanged += new System.EventHandler(this.listBox1_SelectedValueChanged);
             // 
             // splitContainer3
             // 

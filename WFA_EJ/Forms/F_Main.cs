@@ -50,6 +50,8 @@ namespace WFA_EJ.Forms
         private void преподавателяToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             OpenDialogAndSave(new F_AddTeacher());
+            listBoxSelectedSubject.Items.Clear();
+            listBoxSelectedSubject.Refresh();
         }
 
         private bool OpenDialogAndSave(Form form)
@@ -61,8 +63,10 @@ namespace WFA_EJ.Forms
 
         private void listBoxSelectedTeacher_SelectedValueChanged(object sender, EventArgs e)
         {
+            if (Program.DataBase.DataBaseEntity.Teachers.Count == 0) return;
             var itemmm = Program.DataBase.DataBaseEntity.Subjects;
             var item = itemmm.Where(x => ((Teacher) listBoxSelectedTeacher.SelectedItem).SubjectsGuid.Contains(x.Guid)).ToArray();
+            if (item.Length == 0) return;
             listBoxSelectedSubject.Items.Clear();
             listBoxSelectedSubject.Items.AddRange(item);
         }
@@ -115,6 +119,8 @@ namespace WFA_EJ.Forms
             var GuidTeacher = selectedTeacher.GuidTeacher;
             var f_add_teacher = new F_AddTeacher(true, GuidTeacher);
             f_add_teacher.ShowDialog();
+            listBoxSelectedSubject.Items.Clear();
+            listBoxSelectedSubject.Refresh();
         }
 
         private void EditGroupToolStripMenuItem_Click(object sender, EventArgs e)

@@ -133,6 +133,8 @@ namespace WFA_EJ.Forms
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.добавитьToolStripMenuItem,
             this.редактироватьToolStripMenuItem,
@@ -255,6 +257,7 @@ namespace WFA_EJ.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(514, 519);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label4);

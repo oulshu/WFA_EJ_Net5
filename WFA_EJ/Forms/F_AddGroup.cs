@@ -92,7 +92,14 @@ namespace WFA_EJ.Forms
                     }
 
                 foreach (var student in strudentsDelGuid)
+                {
                     Program.DataBase.DataBaseEntity.Students.Remove(Program.DataBase.DataBaseEntity.Students.First(x => x.Guid == student));
+                    var evaluation_of_students = Program.DataBase.DataBaseEntity.EvaluationOfStudents.Where(x => x.StudentGuid == student).ToList();
+                    foreach (var evaluation_of_student in evaluation_of_students)
+                        Program.DataBase.DataBaseEntity.EvaluationOfStudents.Remove(evaluation_of_student);
+                    groupDB.Students.Remove(student);
+
+                }
             }
             else
             {
